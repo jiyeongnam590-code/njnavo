@@ -393,57 +393,195 @@
     }
 
     @media (max-width: 760px) {
+      html,
+      body {
+        height: 100%;
+        min-height: 100%;
+      }
+
       .desktop {
-        min-height: 680px;
-        background-position: center center;
+        width: 100%;
+        height: 100svh;
+        min-height: 0;
+        background-position: 50% 58%;
       }
 
       .topbar {
-        top: 17px;
-        left: 17px;
-        right: 17px;
+        top: max(14px, env(safe-area-inset-top));
+        left: 16px;
+        right: 16px;
+      }
+
+      .wordmark {
+        gap: 8px;
+        font-size: 14px;
+      }
+
+      .wordmark::before {
+        width: 9px;
+        height: 9px;
+        box-shadow: 0 0 0 4px rgba(202,255,67,.23);
+      }
+
+      .nav {
+        padding: 3px;
+      }
+
+      .nav button {
+        min-height: 36px;
+        padding: 0 12px;
+        font-size: 10px;
       }
 
       .nav button:not(:last-child) { display: none; }
-      .intro { top: 13%; }
-      .lead { max-width: 330px; }
+
+      .intro {
+        top: clamp(82px, 13svh, 116px);
+        width: calc(100% - 40px);
+      }
+
+      .eyebrow {
+        margin-bottom: 9px;
+        font-size: 8px;
+        letter-spacing: .16em;
+      }
+
+      h1 {
+        font-size: clamp(30px, 9.4vw, 42px);
+        line-height: 1.07;
+        letter-spacing: -.05em;
+      }
+
+      .lead {
+        max-width: 310px;
+        margin-top: 11px;
+        font-size: 11px;
+        line-height: 1.5;
+      }
 
       .project-icon:nth-child(1) {
-        --icon-size: 82px;
-        left: 7%; top: 39%;
+        --icon-size: clamp(62px, 18vw, 74px);
+        left: 10%; top: 41%;
       }
       .project-icon:nth-child(2) {
-        --icon-size: 82px;
-        left: 40%; top: 32%;
+        --icon-size: clamp(62px, 18vw, 74px);
+        left: 42%; top: 38%;
       }
       .project-icon:nth-child(3) {
-        --icon-size: 82px;
-        left: 70%; top: 42%;
+        --icon-size: clamp(62px, 18vw, 74px);
+        left: 70%; top: 44%;
       }
       .project-icon:nth-child(4) {
-        --icon-size: 82px;
-        left: 15%; top: 58%;
+        --icon-size: clamp(62px, 18vw, 74px);
+        left: 16%; top: 59%;
       }
       .project-icon:nth-child(5) {
-        --icon-size: 82px;
-        left: 42%; top: 55%;
+        --icon-size: clamp(62px, 18vw, 74px);
+        left: 43%; top: 55%;
       }
       .project-icon:nth-child(6) {
-        --icon-size: 82px;
-        left: 68%; top: 68%;
+        --icon-size: clamp(62px, 18vw, 74px);
+        left: 68%; top: 66%;
       }
 
       .icon-shape {
-        border-radius: 28%;
+        border-radius: 26%;
+        box-shadow: 0 9px 20px rgba(9,30,22,.17), inset 0 1px 0 rgba(255,255,255,.42);
       }
 
       .icon-name {
         width: max-content;
-        max-width: 120px;
+        max-width: 105px;
+        margin-top: 6px;
+        padding: 3px 5px;
+        font-size: 8px;
+        letter-spacing: .02em;
+      }
+
+      .hint {
+        bottom: max(12px, env(safe-area-inset-bottom));
+        padding: 7px 10px;
         font-size: 9px;
       }
 
-      .hint { bottom: 18px; }
+      .window {
+        width: calc(100% - 24px);
+        max-height: calc(100svh - 24px);
+        border-radius: 22px;
+      }
+
+      .window-top {
+        padding: 12px 14px;
+      }
+
+      .window-body {
+        padding: 24px 18px 28px;
+      }
+
+      .window h2 {
+        font-size: clamp(32px, 12vw, 48px);
+      }
+
+      .window-copy {
+        margin-top: 16px;
+        font-size: 13px;
+        line-height: 1.65;
+      }
+    }
+
+    @media (max-width: 380px), (max-height: 700px) and (max-width: 760px) {
+      .intro {
+        top: clamp(72px, 11svh, 88px);
+      }
+
+      h1 {
+        font-size: clamp(27px, 8.8vw, 34px);
+      }
+
+      .lead {
+        max-width: 280px;
+        font-size: 10px;
+      }
+
+      .project-icon:nth-child(1) { left: 10%; top: 40%; }
+      .project-icon:nth-child(2) { left: 41%; top: 37%; }
+      .project-icon:nth-child(3) { left: 69%; top: 43%; }
+      .project-icon:nth-child(4) { left: 15%; top: 58%; }
+      .project-icon:nth-child(5) { left: 42%; top: 54%; }
+      .project-icon:nth-child(6) { left: 67%; top: 65%; }
+    }
+
+    @media (max-width: 760px) and (orientation: landscape) {
+      .desktop {
+        min-height: 340px;
+        background-position: center 58%;
+      }
+
+      .intro {
+        top: 20%;
+        left: 28%;
+        width: 43%;
+      }
+
+      .eyebrow,
+      .lead {
+        display: none;
+      }
+
+      h1 {
+        font-size: clamp(25px, 5vw, 38px);
+      }
+
+      .project-icon:nth-child(1) { left: 4%; top: 50%; }
+      .project-icon:nth-child(2) { left: 18%; top: 63%; }
+      .project-icon:nth-child(3) { left: 72%; top: 22%; }
+      .project-icon:nth-child(4) { left: 58%; top: 59%; }
+      .project-icon:nth-child(5) { left: 80%; top: 57%; }
+      .project-icon:nth-child(6) { left: 89%; top: 34%; }
+
+      .hint {
+        display: none;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
