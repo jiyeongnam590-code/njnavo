@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#cfdae5">
-  <title>NJNAVO · SKY PORTFOLIO</title>
+  <title>NJNAVO</title>
   <style>
     :root {
       --ink: #10251d;
@@ -158,9 +158,17 @@
     }
 
     .icon-layer {
+      /* 아이콘 묶음 위치: top 숫자를 바꾸면 전체가 위·아래로 이동합니다. */
       position: absolute;
       z-index: 10;
-      inset: 0;
+      left: 50%;
+      top: clamp(390px, 54vh, 540px);
+      display: grid;
+      /* PC 배열: repeat(3, ...)은 한 줄에 3개, gap은 세로·가로 간격입니다. */
+      grid-template-columns: repeat(3, 96px);
+      gap: 38px 58px;
+      width: max-content;
+      transform: translateX(-50%);
     }
 
     .project-icon {
@@ -168,7 +176,7 @@
       --y: 0px;
       --r: 0deg;
       --icon-size: 96px;
-      position: absolute;
+      position: relative;
       width: var(--icon-size);
       padding: 0;
       border: 0;
@@ -180,25 +188,6 @@
       transition: transform .65s cubic-bezier(.18,.85,.25,1), filter .3s ease;
       will-change: transform;
       -webkit-tap-highlight-color: transparent;
-    }
-
-    .project-icon:nth-child(1) {
-      left: 10%; top: 27%;
-    }
-    .project-icon:nth-child(2) {
-      left: 56%; top: 65%;
-    }
-    .project-icon:nth-child(3) {
-      left: 78%; top: 22%;
-    }
-    .project-icon:nth-child(4) {
-      left: 21%; top: 60%;
-    }
-    .project-icon:nth-child(5) {
-      left: 41%; top: 43%;
-    }
-    .project-icon:nth-child(6) {
-      left: 68%; top: 62%;
     }
 
     .project-icon:hover,
@@ -459,29 +448,14 @@
         line-height: 1.5;
       }
 
-      .project-icon:nth-child(1) {
-        --icon-size: clamp(58px, 17vw, 70px);
-        left: 8%; top: 40%;
+      .icon-layer {
+        top: clamp(330px, 45svh, 390px);
+        grid-template-columns: repeat(2, clamp(70px, 20vw, 82px));
+        gap: clamp(22px, 3.5svh, 34px) clamp(42px, 13vw, 62px);
       }
-      .project-icon:nth-child(2) {
-        --icon-size: clamp(58px, 17vw, 70px);
-        left: 40%; top: 45%;
-      }
-      .project-icon:nth-child(3) {
-        --icon-size: clamp(58px, 17vw, 70px);
-        right: 7%; left: auto; top: 39%;
-      }
-      .project-icon:nth-child(4) {
-        --icon-size: clamp(58px, 17vw, 70px);
-        left: 13%; top: 61%;
-      }
-      .project-icon:nth-child(5) {
-        --icon-size: clamp(58px, 17vw, 70px);
-        left: 42%; top: 65%;
-      }
-      .project-icon:nth-child(6) {
-        --icon-size: clamp(58px, 17vw, 70px);
-        right: 9%; left: auto; top: 58%;
+
+      .project-icon {
+        --icon-size: clamp(70px, 20vw, 82px);
       }
 
       .icon-shape {
@@ -544,15 +518,14 @@
       }
 
       .project-icon {
-        --icon-size: clamp(54px, 16vw, 62px) !important;
+        --icon-size: clamp(58px, 17vw, 66px) !important;
       }
 
-      .project-icon:nth-child(1) { left: 8%; top: 39%; }
-      .project-icon:nth-child(2) { left: 40%; top: 43%; }
-      .project-icon:nth-child(3) { right: 7%; left: auto; top: 38%; }
-      .project-icon:nth-child(4) { left: 13%; top: 59%; }
-      .project-icon:nth-child(5) { left: 42%; top: 63%; }
-      .project-icon:nth-child(6) { right: 9%; left: auto; top: 57%; }
+      .icon-layer {
+        top: clamp(285px, 43svh, 330px);
+        grid-template-columns: repeat(2, clamp(58px, 17vw, 66px));
+        gap: 18px clamp(42px, 14vw, 56px);
+      }
 
       .hint {
         display: none;
@@ -566,9 +539,9 @@
       }
 
       .intro {
-        top: 20%;
-        left: 28%;
-        width: 43%;
+        top: 18%;
+        left: 27%;
+        width: 44%;
       }
 
       .eyebrow,
@@ -580,12 +553,16 @@
         font-size: clamp(25px, 5vw, 38px);
       }
 
-      .project-icon:nth-child(1) { left: 4%; top: 50%; }
-      .project-icon:nth-child(2) { left: 18%; top: 63%; }
-      .project-icon:nth-child(3) { left: 72%; top: 22%; }
-      .project-icon:nth-child(4) { left: 58%; top: 59%; }
-      .project-icon:nth-child(5) { left: 80%; top: 57%; }
-      .project-icon:nth-child(6) { left: 89%; top: 34%; }
+      .icon-layer {
+        top: 24%;
+        left: 71%;
+        grid-template-columns: repeat(3, clamp(52px, 8vw, 62px));
+        gap: 26px 20px;
+      }
+
+      .project-icon {
+        --icon-size: clamp(52px, 8vw, 62px) !important;
+      }
 
       .hint {
         display: none;
@@ -605,7 +582,7 @@
 <body>
   <main class="desktop" id="desktop">
     <header class="topbar">
-      <a class="wordmark" href="#" aria-label="NJNAVO 홈">NJNAVO</a>
+      <a class="wordmark" href="#" aria-label="NJNAVO 홈">◇ NJNAVO ◇</a>
       <nav class="nav" aria-label="주요 메뉴">
         <button type="button" data-open="ABOUT">ABOUT</button>
         <button type="button" data-open="CONTACT">CONTACT</button>
@@ -786,44 +763,8 @@
       if (event.key === "Escape" && modal.classList.contains("open")) closeProject();
     });
 
-    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-
-    desktop.addEventListener("pointermove", event => {
-      if (!finePointer.matches) return;
-      icons.forEach((icon, index) => {
-        const rect = icon.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        const dx = cx - event.clientX;
-        const dy = cy - event.clientY;
-        const distance = Math.hypot(dx, dy);
-        const radius = 210;
-
-        if (distance < radius) {
-          const force = (radius - distance) / radius;
-          const safeDistance = Math.max(distance, 1);
-          const move = force * 31;
-          const x = dx / safeDistance * move;
-          const y = dy / safeDistance * move;
-          const rotate = (index % 2 ? -1 : 1) * force * 5;
-          icon.style.setProperty("--x", `${x.toFixed(1)}px`);
-          icon.style.setProperty("--y", `${y.toFixed(1)}px`);
-          icon.style.setProperty("--r", `${rotate.toFixed(1)}deg`);
-        } else {
-          icon.style.setProperty("--x", "0px");
-          icon.style.setProperty("--y", "0px");
-          icon.style.setProperty("--r", "0deg");
-        }
-      });
-    });
-
-    desktop.addEventListener("pointerleave", () => {
-      icons.forEach(icon => {
-        icon.style.setProperty("--x", "0px");
-        icon.style.setProperty("--y", "0px");
-        icon.style.setProperty("--r", "0deg");
-      });
-    });
+    /* 아이콘 배열이 흐트러져 보이지 않도록 마우스 회피 움직임은 제거했습니다.
+       개별 아이콘에 마우스를 올렸을 때 살짝 올라가는 효과는 CSS로 유지됩니다. */
   </script>
 </body>
 </html>
