@@ -99,7 +99,10 @@
       backdrop-filter: blur(12px);
     }
 
-    .nav button {
+    .nav button,
+    .nav a {
+      display: inline-grid;
+      place-items: center;
       min-height: 38px;
       padding: 0 15px;
       border: 0;
@@ -110,10 +113,13 @@
       font-size: 12px;
       font-weight: 700;
       letter-spacing: .04em;
+      text-decoration: none;
     }
 
     .nav button:hover,
-    .nav button:focus-visible {
+    .nav button:focus-visible,
+    .nav a:hover,
+    .nav a:focus-visible {
       outline: none;
       background: rgba(255,255,255,.7);
     }
@@ -377,6 +383,27 @@
       font-weight: 700;
     }
 
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: var(--ink);
+      background: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(16,37,29,.13);
+    }
+
+    .project-link:hover,
+    .project-link:focus-visible {
+      outline: 2px solid rgba(16,37,29,.35);
+      outline-offset: 3px;
+    }
+
     @keyframes intro-in {
       from { opacity: 0; transform: translate(-50%, 16px); }
     }
@@ -416,13 +443,12 @@
         padding: 3px;
       }
 
-      .nav button {
+      .nav button,
+      .nav a {
         min-height: 36px;
-        padding: 0 12px;
+        padding: 0 8px;
         font-size: 10px;
       }
-
-      .nav button:not(:last-child) { display: none; }
 
       .intro {
         top: clamp(78px, 12.5svh, 108px);
@@ -582,10 +608,12 @@
 <body>
   <main class="desktop" id="desktop">
     <header class="topbar">
-      <a class="wordmark" href="#" aria-label="NJNAVO 홈">◇ NJNAVO ◇</a>
+      <!-- 이미지 로고가 확정되면 이 글자형 워드마크를 img 요소로 교체하면 됩니다. -->
+      <a class="wordmark" href="index.html" aria-label="NJNAVO 홈">◇ NJNAVO ◇</a>
       <nav class="nav" aria-label="주요 메뉴">
         <button type="button" data-open="ABOUT">ABOUT</button>
         <button type="button" data-open="CONTACT">CONTACT</button>
+        <a href="sitemap.html">SITEMAP</a>
       </nav>
     </header>
 
@@ -596,15 +624,15 @@
     </section>
 
     <section class="icon-layer" aria-label="프로젝트">
-      <button class="project-icon" type="button" data-project="NAENGIL" aria-label="냉일 프로젝트 열기">
+      <button class="project-icon" type="button" data-project="ABOUT" aria-label="소개 열기">
         <span class="icon-shape">
           <svg viewBox="0 0 48 48" aria-hidden="true">
-            <rect x="12" y="5" width="24" height="38" rx="5"></rect>
-            <path d="M12 22h24M31 12v5M31 27v6"></path>
-            <path d="M19 14c3-4 7-4 10 0"></path>
+            <circle cx="24" cy="17" r="8"></circle>
+            <path d="M9 42c1-10 6-15 15-15s14 5 15 15"></path>
+            <path d="M35 9h8M39 5v8"></path>
           </svg>
         </span>
-        <span class="icon-name">NAENGIL</span>
+        <span class="icon-name">ABOUT ME</span>
       </button>
 
       <button class="project-icon" type="button" data-project="HOME TABLE" aria-label="홈 테이블 프로젝트 열기">
@@ -629,15 +657,15 @@
         <span class="icon-name">BRANDING</span>
       </button>
 
-      <button class="project-icon" type="button" data-project="QGIS" aria-label="QGIS 프로젝트 열기">
+      <button class="project-icon" type="button" data-project="NAENGIL" aria-label="냉일 프로젝트 열기">
         <span class="icon-shape">
           <svg viewBox="0 0 48 48" aria-hidden="true">
-            <path d="m6 14 12-6 12 6 12-6v28l-12 6-12-6-12 6V14Z"></path>
-            <path d="M18 8v28M30 14v28"></path>
-            <path d="M26 23a5 5 0 1 1 10 0c0 5-5 10-5 10s-5-5-5-10Z"></path>
+            <rect x="12" y="5" width="24" height="38" rx="5"></rect>
+            <path d="M12 22h24M31 12v5M31 27v6"></path>
+            <path d="M19 14c3-4 7-4 10 0"></path>
           </svg>
         </span>
-        <span class="icon-name">QGIS</span>
+        <span class="icon-name">NAENGIL</span>
       </button>
 
       <button class="project-icon" type="button" data-project="WEB & CONTENT" aria-label="웹과 콘텐츠 프로젝트 열기">
@@ -651,15 +679,15 @@
         <span class="icon-name">WEB & CONTENT</span>
       </button>
 
-      <button class="project-icon" type="button" data-project="ABOUT" aria-label="소개 열기">
+      <button class="project-icon" type="button" data-project="QGIS" aria-label="QGIS 프로젝트 열기">
         <span class="icon-shape">
           <svg viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="24" cy="17" r="8"></circle>
-            <path d="M9 42c1-10 6-15 15-15s14 5 15 15"></path>
-            <path d="M35 9h8M39 5v8"></path>
+            <path d="m6 14 12-6 12 6 12-6v28l-12 6-12-6-12 6V14Z"></path>
+            <path d="M18 8v28M30 14v28"></path>
+            <path d="M26 23a5 5 0 1 1 10 0c0 5-5 10-5 10s-5-5-5-10Z"></path>
           </svg>
         </span>
-        <span class="icon-name">ABOUT ME</span>
+        <span class="icon-name">QGIS</span>
       </button>
     </section>
 
@@ -677,6 +705,7 @@
         <h2 id="window-heading">NAENGIL</h2>
         <p class="window-copy" id="window-copy"></p>
         <div class="tag-row" id="window-tags"></div>
+        <a class="project-link" id="project-link" href="about.html">페이지 보기 →</a>
       </div>
     </article>
   </div>
@@ -692,37 +721,44 @@
       "NAENGIL": {
         kicker: "App planning · UX/UI",
         copy: "냉장고 속 재료를 한눈에 확인하고, 오늘의 식단을 추천받는 생활 관리 앱입니다. 사용자 흐름부터 화면 구조, 데이터와 예외 상황까지 설계합니다.",
-        tags: ["서비스 기획", "UX/UI", "프로토타입", "Design System"]
+        tags: ["서비스 기획", "UX/UI", "프로토타입", "Design System"],
+        href: "naengil.html"
       },
       "HOME TABLE": {
         kicker: "Food archive · Content",
         copy: "직접 만든 집밥과 반찬을 정갈한 사진과 쉬운 이야기로 기록합니다. 냉장고 재료와 실제 식생활을 콘텐츠로 연결하는 아카이브입니다.",
-        tags: ["집밥 사진", "콘텐츠 기획", "블로그", "Short-form"]
+        tags: ["집밥 사진", "콘텐츠 기획", "블로그", "Short-form"],
+        href: "home-table.html"
       },
       "BRANDING": {
         kicker: "Brand identity",
         copy: "NJNAVO라는 이름에 담긴 생각부터 워드마크, 색상, 언어와 적용 방식까지 브랜드가 만들어지는 과정을 기록합니다.",
-        tags: ["Naming", "Identity", "Logo Process", "Guideline"]
+        tags: ["Naming", "Identity", "Logo Process", "Guideline"],
+        href: "branding.html"
       },
       "QGIS": {
         kicker: "Spatial data · Visualization",
         copy: "흩어진 공간정보를 목적에 맞게 정리하고 지도 위에 시각화합니다. 복잡한 데이터를 사람들이 이해하기 쉬운 정보로 바꾸는 작업입니다.",
-        tags: ["QGIS", "공간정보", "데이터 정리", "지도 시각화"]
+        tags: ["QGIS", "공간정보", "데이터 정리", "지도 시각화"],
+        href: "qgis.html"
       },
       "WEB & CONTENT": {
         kicker: "Web · Visual content",
         copy: "웹페이지, 카드뉴스, 영상과 다양한 디지털 콘텐츠를 목적과 사용자에 맞춰 구조화하고 제작한 작업을 모았습니다.",
-        tags: ["Web Design", "HTML/CSS", "Card News", "Video"]
+        tags: ["Web Design", "HTML/CSS", "Card News", "Video"],
+        href: "web-content.html"
       },
       "ABOUT": {
         kicker: "Planner · Designer",
         copy: "사용자의 시선에서 문제를 발견하고, 복잡한 생각을 구조로 정리해 실제 결과물까지 연결합니다. 웹·콘텐츠·데이터 경험을 바탕으로 계속 배우고 만드는 중입니다.",
-        tags: ["기획", "구조화", "문제 해결", "사용자 중심"]
+        tags: ["기획", "구조화", "문제 해결", "사용자 중심"],
+        href: "about.html"
       },
       "CONTACT": {
         kicker: "Let’s work together",
         copy: "프로젝트와 채용에 관한 연락처가 들어갈 자리입니다. 최종 홈페이지에서는 이메일과 이력서 링크를 연결할 수 있습니다.",
-        tags: ["Email", "Resume", "NJNAVO"]
+        tags: ["Email", "Resume", "NJNAVO"],
+        href: "#"
       }
     };
 
@@ -735,6 +771,10 @@
       document.querySelector("#window-copy").textContent = data.copy;
       document.querySelector("#window-tags").innerHTML =
         data.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+      const projectLink = document.querySelector("#project-link");
+      projectLink.href = data.href;
+      projectLink.textContent = name === "CONTACT" ? "연락처 준비 중" : "페이지 보기 →";
+      projectLink.style.pointerEvents = name === "CONTACT" ? "none" : "";
       modal.classList.add("open");
       document.body.style.overflow = "hidden";
       closeButton.focus();
