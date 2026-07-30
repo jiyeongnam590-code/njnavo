@@ -1,0 +1,365 @@
+[about.html](https://github.com/user-attachments/files/30529849/about.html)
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dfeaf1">
+  <meta name="description" content="사용자의 시선에서 시작해 생각을 구조로 만드는 기획자 NJNAVO를 소개합니다.">
+  <title>ABOUT ME · NJNAVO</title>
+  <style>
+    :root {
+      --ink: #151817;
+      --muted: #606864;
+      --line: #e3e7e3;
+      --accent: #b9df00;
+      --accent-soft: #f3f9d8;
+      --paper: rgba(255,255,255,.965);
+      --page: min(1120px, calc(100% - 48px));
+      --board: min(930px, calc(100% - 48px));
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+      background:
+        linear-gradient(rgba(226,236,242,.12), rgba(8,28,20,.08)),
+        url("bg-about.jpg") center center / cover fixed;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .skip {
+      position: fixed; top: 8px; left: 8px; z-index: 100;
+      padding: 10px 14px; background: #111; color: #fff;
+      transform: translateY(-150%);
+    }
+    .skip:focus { transform: none; }
+    .site-header {
+      width: var(--page);
+      min-height: 104px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 13px; font-weight: 800; letter-spacing: -.01em;
+    }
+    .brand::before {
+      content: ""; width: 9px; height: 9px;
+      border-radius: 50%; background: var(--accent);
+    }
+    .brand small { font-size: 11px; font-weight: 500; }
+    .top-nav { display: flex; align-items: center; gap: 34px; }
+    .top-nav a {
+      padding: 10px 0; font-size: 11px; font-weight: 600;
+      border-bottom: 1px solid transparent;
+    }
+    .top-nav a:hover, .top-nav a:focus-visible {
+      border-color: var(--ink); outline: none;
+    }
+    .board {
+      width: var(--board);
+      margin: 110px auto 70px;
+      padding: clamp(46px, 7vw, 76px) clamp(34px, 7vw, 74px) 30px;
+      border-radius: 14px 14px 0 0;
+      background: var(--paper);
+      box-shadow: 0 18px 60px rgba(18,30,24,.17);
+    }
+    .page-kicker, .section-title {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+    h1 {
+      margin: 16px 0 12px;
+      font-size: clamp(46px, 7vw, 70px);
+      line-height: .95;
+      letter-spacing: -.055em;
+    }
+    .lead {
+      margin: 0;
+      font-size: clamp(17px, 2.2vw, 23px);
+      line-height: 1.6;
+      font-weight: 500;
+      word-break: keep-all;
+    }
+    .meta {
+      display: flex; align-items: center; gap: 9px;
+      margin-top: 28px; color: #303633;
+      font-size: 11px; font-weight: 600;
+    }
+    .meta::after {
+      content: ""; display: block; width: 30px; height: 3px;
+      margin-left: -100%; margin-top: 28px; background: var(--accent);
+      transform: translateX(100%);
+    }
+    section {
+      padding: 42px 0;
+      border-top: 1px solid var(--line);
+    }
+    section:first-of-type { margin-top: 44px; }
+    .overview {
+      display: grid;
+      grid-template-columns: .78fr 1.35fr;
+      gap: clamp(34px, 7vw, 88px);
+      align-items: center;
+    }
+    .statement h2 {
+      margin: 36px 0 18px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.25;
+      letter-spacing: -.05em;
+    }
+    .statement p, .intro-card p, .strength p, .process p {
+      margin: 0; color: var(--muted); font-size: 14px;
+      line-height: 1.85; word-break: keep-all;
+    }
+    .intro-card {
+      padding: clamp(24px, 4vw, 38px);
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 82% 20%, rgba(185,223,0,.22), transparent 28%),
+        linear-gradient(145deg, #eef2ee, #fafbf9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .intro-visual-frame {
+      position: relative;
+      width: 100%;
+      margin: 0 0 18px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: transparent;
+    }
+    .intro-visual {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .strength-heading { margin-bottom: 26px; }
+    .strength-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
+    }
+    .strength {
+      min-height: 220px; padding: 28px 24px;
+      border: 1px solid var(--line); border-radius: 14px;
+    }
+    .number {
+      width: 44px; height: 44px; display: grid; place-items: center;
+      margin-bottom: 25px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      font-size: 13px; font-weight: 800;
+    }
+    .strength h3 { margin: 0 0 14px; font-size: 18px; line-height: 1.45; }
+    .process-list {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 18px; margin-top: 28px;
+    }
+    .process { position: relative; text-align: center; }
+    .process:not(:last-child)::after {
+      content: "→"; position: absolute; top: 20px; right: -13px;
+      color: #4f5753;
+    }
+    .process-icon {
+      width: 58px; height: 58px; margin: 0 auto 16px;
+      display: grid; place-items: center; border-radius: 50%;
+      background: var(--accent-soft); font-size: 20px; font-weight: 600;
+    }
+    .process strong { display: block; margin-bottom: 8px; font-size: 14px; }
+    .process p { font-size: 12px; }
+    .next {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; padding: 38px 0;
+    }
+    .next span { color: var(--muted); font-size: 11px; font-weight: 700; }
+    .next strong { display: block; margin-top: 7px; font-size: 25px; }
+    .next a {
+      display: grid; min-width: 132px; min-height: 46px; padding: 0 22px;
+      place-items: center; border-radius: 999px; background: var(--ink);
+      color: #fff; font-size: 12px; font-weight: 700;
+    }
+    footer {
+      padding: 28px 0 4px; border-top: 1px solid var(--line);
+      color: #919792; text-align: center; font-size: 10px;
+    }
+    @media (max-width: 720px) {
+      body {
+        background:
+          linear-gradient(rgba(226,236,242,.12), rgba(8,28,20,.08)),
+          url("bg-about.jpg") center center / cover scroll;
+      }
+      .site-header {
+        width: calc(100% - 32px);
+        min-height: 0;
+        padding: 20px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .brand { gap: 7px; }
+      .brand small { width: auto; padding-left: 0; }
+      .top-nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .top-nav a { padding: 6px 0; font-size: 10px; }
+      .board {
+        width: calc(100% - 24px); margin: 28px auto 20px;
+        padding: 38px 24px 24px;
+      }
+      section { padding: 34px 0; }
+      section:first-of-type { margin-top: 36px; }
+      .overview, .strength-grid, .process-list { grid-template-columns: 1fr; }
+      .overview { gap: 28px; }
+      .intro-card { padding: 22px; }
+      .strength-grid { gap: 14px; }
+      .strength { min-height: 0; }
+      .process {
+        display: grid; grid-template-columns: 58px 1fr;
+        column-gap: 18px; text-align: left; align-items: center;
+      }
+      .process-icon { grid-row: span 2; margin: 0; }
+      .process:not(:last-child)::after {
+        content: "↓"; top: auto; right: auto; bottom: -17px; left: 24px;
+      }
+      .next { align-items: flex-start; flex-direction: column; }
+      .next a { width: 100%; }
+    }
+    @media (max-width: 430px) {
+      .site-header { width: calc(100% - 24px); }
+      .brand { font-size: 12px; }
+      .brand small { font-size: 10px; }
+      .top-nav { gap: 8px; }
+      .top-nav a { font-size: 9px; }
+      .board {
+        width: calc(100% - 16px);
+        margin-top: 20px;
+        padding: 32px 18px 20px;
+        border-radius: 10px 10px 0 0;
+      }
+      h1 { font-size: 40px; }
+      .lead { font-size: 16px; }
+      .meta { line-height: 1.5; }
+      .statement h2 { margin-top: 28px; }
+      .intro-card { padding: 16px; border-radius: 10px; }
+      .intro-card p, .statement p, .strength p { font-size: 13px; }
+      .strength { padding: 24px 20px; }
+      .next strong { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">본문 바로가기</a>
+  <header class="site-header">
+    <!-- 추후 이미지 로고로 교체할 수 있는 영역 -->
+    <a class="brand" href="index.html">NJNAVO <small>· SKY PORTFOLIO</small></a>
+    <nav class="top-nav" aria-label="주요 메뉴">
+      <a href="index.html">WORK</a>
+      <a href="about.html" aria-current="page">ABOUT</a>
+      <a href="index.html#contact">CONTACT</a>
+      <a href="sitemap.html">SITEMAP</a>
+    </nav>
+  </header>
+
+  <main class="board" id="content">
+    <p class="page-kicker">PROFILE 01</p>
+    <h1>ABOUT ME</h1>
+    <p class="lead">사용자의 시선에서 시작해<br>생각을 구조로 만드는 기획자입니다.</p>
+    <p class="meta">PLANNING · DESIGN · CONTENT · 2026</p>
+
+    <section class="overview" aria-labelledby="overview-title">
+      <div class="statement">
+        <p class="section-title">MY OVERVIEW</p>
+        <h2 id="overview-title">복잡한 생각을<br>이해하기 쉽게.</h2>
+        <p>필요한 정보를 찾고, 흐름을 정리하고,<br>사람이 편하게 사용할 수 있는 형태로 만듭니다.</p>
+      </div>
+      <div class="intro-card">
+        <!--
+          이 이미지만 교체하면 됩니다.
+          권장 파일명: about-intro.png
+          현재 이미지 크기: 588 × 248px
+          아래 설명 문구는 이미지가 아니라 HTML 텍스트입니다.
+        -->
+        <div class="intro-visual-frame">
+          <img
+            class="intro-visual"
+            src="about-intro.png"
+            width="588"
+            height="248"
+            alt="무엇을 만들까보다 왜 필요한가부터 생각합니다."
+          >
+        </div>
+        <p>웹디자인, 실무 행정, 고객 상담과 콘텐츠 제작 경험을 바탕으로 문제를 발견하고 해결 과정 전체를 설계합니다.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="strength-title">
+      <div class="strength-heading">
+        <p class="section-title" id="strength-title">MY STRENGTHS</p>
+      </div>
+      <div class="strength-grid">
+        <article class="strength">
+          <div class="number">01</div>
+          <h3>기획</h3>
+          <p>사용자의 필요와 목적을 먼저 파악하고, 무엇을 전달해야 하는지 핵심을 정리합니다.</p>
+        </article>
+        <article class="strength">
+          <div class="number">02</div>
+          <h3>구조화</h3>
+          <p>흩어진 정보와 아이디어를 화면과 콘텐츠의 자연스러운 흐름으로 연결합니다.</p>
+        </article>
+        <article class="strength">
+          <div class="number">03</div>
+          <h3>사용자 관점</h3>
+          <p>처음 보는 사람도 이해하고 사용할 수 있도록 쉬운 말과 분명한 동선을 고민합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="process-title">
+      <p class="section-title" id="process-title">WORKING PROCESS</p>
+      <div class="process-list">
+        <article class="process">
+          <div class="process-icon">?</div>
+          <strong>01 발견</strong>
+          <p>불편과 목적을 찾습니다.</p>
+        </article>
+        <article class="process">
+          <div class="process-icon">◎</div>
+          <strong>02 정리</strong>
+          <p>핵심과 우선순위를 정합니다.</p>
+        </article>
+        <article class="process">
+          <div class="process-icon">□</div>
+          <strong>03 설계</strong>
+          <p>정보와 화면 흐름을 만듭니다.</p>
+        </article>
+        <article class="process">
+          <div class="process-icon">✓</div>
+          <strong>04 개선</strong>
+          <p>확인하고 더 쉽게 다듬습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="next">
+      <div>
+        <span>NEXT PAGE</span>
+        <strong>HOME TABLE</strong>
+      </div>
+      <a href="home-table.html">다음 페이지 →</a>
+    </div>
+
+    <footer>© NJNAVO 2026. ALL RIGHTS RESERVED.</footer>
+  </main>
+</body>
+</html>
