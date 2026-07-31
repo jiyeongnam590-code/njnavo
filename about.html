@@ -14,8 +14,10 @@
       --accent: #aaaaaa;
       --accent-soft: #f3f9d8;
       --paper: rgba(255,255,255,.965);
-      --page: min(1120px, calc(100% - 48px));
-      --board: min(930px, calc(100% - 48px));
+      --layout-width: 1180px;
+      --layout-gutter: 20px;
+      --content-width: 930px;
+      --board: min(var(--layout-width), calc(100% - (var(--layout-gutter) * 2)));
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -39,7 +41,7 @@
     }
     .skip:focus { transform: none; }
     .topbar {
-      width: min(1180px, calc(100% - 40px));
+      width: min(var(--layout-width), calc(100% - (var(--layout-gutter) * 2)));
       margin: 30px auto 0;
       display: flex;
       align-items: center;
@@ -57,7 +59,7 @@
       gap: 8px 18px;
     }
     .top-links a {
-      color: #15231b;
+      color: #10251d;
       font-size: 11px; font-weight: 800; letter-spacing: .06em;
       text-decoration: none;
     }
@@ -69,8 +71,24 @@
       background: var(--paper);
       box-shadow: 0 18px 60px rgba(18,30,24,.17);
     }
+    .board > * {
+      width: min(100%, var(--content-width));
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .profile-intro {
+      width: min(100%, var(--content-width));
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .profile-intro > * {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
     .page-kicker, .section-title {
-      margin: 0;
+      margin-top: 0;
+      margin-bottom: 0;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: -.01em;
@@ -82,7 +100,8 @@
       letter-spacing: -.055em;
     }
     .lead {
-      margin: 0;
+      margin-top: 0;
+      margin-bottom: 0;
       font-size: clamp(17px, 2.2vw, 23px);
       line-height: 1.6;
       font-weight: 500;
@@ -193,6 +212,9 @@
         width: min(100% - 28px, 640px);
         margin-top: 22px;
       }
+      .brand { font-size: 13px; }
+      .top-links { gap: 8px 14px; }
+      .top-links a { font-size: 9px; }
     }
     @media (max-width: 720px) {
       body {
@@ -253,10 +275,12 @@
   </header>
 
   <main class="board" id="content">
-    <p class="page-kicker">PROFILE 01</p>
-    <h1>ABOUT ME</h1>
-    <p class="lead">사용자의 시선에서 시작해<br>생각을 구조로 만드는 기획자입니다.</p>
-    <p class="meta">PLANNING · DESIGN · CONTENT · 2026</p>
+    <div class="profile-intro">
+      <p class="page-kicker">PROFILE 01</p>
+      <h1>ABOUT ME</h1>
+      <p class="lead">사용자의 시선에서 시작해<br>생각을 구조로 만드는 기획자입니다.</p>
+      <p class="meta">PLANNING · DESIGN · CONTENT · 2026</p>
+    </div>
 
     <section class="overview" aria-labelledby="overview-title">
       <div class="statement">
